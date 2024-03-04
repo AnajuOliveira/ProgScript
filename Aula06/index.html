@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Aula 06: V-ON e V_BIND </title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div :style="{backgroundColor: corFundo}">
+            Este é um exemplo de V-BIND!
+        </div>
+        <h1 :style="{color: resposta()}"> O contador está em: {{contador}}</h1>
+        <button @click="incrementarContador"> +1 </button>
+        <p> Timer: {{timer()}} </p>
+    </div>
+</body>
+</html>
+
+<script>
+    const {createApp} = Vue;
+    createApp({
+        data(){
+            return{
+                corFundo: 'blue',
+                contador: 0,
+                // impar
+                color1: 'purple',
+                //par
+                color2: 'orange',
+                num: 1000
+            }
+        },
+        methods: {
+            incrementarContador() {
+                this.contador++
+            },
+            resposta() {
+                if (this.contador % 2 == 0) {
+                    return this.color2
+                } else {
+                    return this.color1
+                }
+            },
+            timer() {
+                setTimeout(() => {
+                    this.num -= 1;
+                }, 1000)
+                return this.num
+            }
+        }
+    }).mount("#app");
+</script>
