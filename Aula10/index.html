@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-FOR e V-Show</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div is="app">
+        <ul>
+            <li v-for="obj in nomes" :key="obj.id" @click="expandirItem(obj)">
+                <span class="nome"> {{obj.nome}} </span>
+                <span class="idade"> {{obj.idade}} </span>
+                <div v-show="obj.expande" class="detalhes">
+                    {{obj.email}}
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
+
+<script src="index.js"></script>

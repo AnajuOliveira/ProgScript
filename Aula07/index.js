@@ -37,7 +37,7 @@ createApp({
             if (this.operador && this.numeroAtual !== null && this.numeroAnterior !== null) {
                 this.lidarIgual(); // Para calcular o resultado anterior antes de aplicar o novo operador
             }
-            this.operador = operador;
+            this.operador = operador; // Correção aqui, passando o operador recebido como parâmetro
             this.numeroAnterior = parseFloat(this.numeroAtual);
             this.numeroAtual = null;
         },
