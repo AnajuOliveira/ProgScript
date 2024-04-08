@@ -14,15 +14,19 @@ createApp({
                 this.vilao.vida -= 10;
                 this.acaoVilao();
             } else {
-                this.heroi.vida -= 20;
+                this.heroi.vida -= 10;
             }
         },
         defender(isHeroi) {
             if (isHeroi) {
+                this.heroi.defender = true;
+                this.vilao.atacar -= 10
                 this.acaoVilao();
             } else {
-                this.heroi.vida -= 20;
+                this.vilao.defender = true;
+                this.heroi.atacar -= 10
             }
+            this.acoes.defender = false
         },
         usarPocao(isHeroi) {
             if (isHeroi) {
@@ -34,16 +38,25 @@ createApp({
         },
         correr(isHeroi) {
             if (isHeroi) {
-                this.vilao.vida -= 10;
+                this.heroi.correr = true;
+                this.vilao.atacar = 0
                 this.acaoVilao();
             } else {
-                this.heroi.vida -= 20;
+                this.vilao.correr = true;
+                this.heroi.atacar = 0
             }
         },
         acaoVilao() {
             const acoes = ['atacar', 'defender', 'usarPocao', 'correr'];
             const acaoAleatoria = acoes[Math.floor(Math.random() * acoes.length)];
-            this[acaoAleatoria](false); b
+            this[acaoAleatoria](false); 
+        },
+        vencedor() {
+            if (this.vilao.vida == 0){
+                console.log("Vitória!!!")
+            } else if (this.heroi.vida ==0){
+                console.log("Game Over!")
+            }
         }
     }
 }).mount("#app");
