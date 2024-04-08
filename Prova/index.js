@@ -51,12 +51,5 @@ createApp({
             const acaoAleatoria = acoes[Math.floor(Math.random() * acoes.length)];
             this[acaoAleatoria](false); 
         },
-        vencedor() {
-            if (this.vilao.vida == 0){
-                console.log("Vitória!!!")
-            } else if (this.heroi.vida ==0){
-                console.log("Game Over!")
-            }
-        }
     }
 }).mount("#app");
