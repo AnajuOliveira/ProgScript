@@ -14,7 +14,7 @@ createApp({
                 this.vilao.vida -= 10;
                 this.acaoVilao();
             } else {
-                this.heroi.vida -= 10;
+                this.heroi.vida -= 20;
             }
         },
         defender(isHeroi) {
